@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alan John | Full-Stack & Blockchain Developer</title>
+  <meta name="description" content="Alan John - Full-Stack Developer, Blockchain Engineer & ML Enthusiast. B.Tech student at CUSAT with expertise in React, Web3, Firebase & Machine Learning."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ─── CURSOR ────────────────────────────────────────────── -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- ─── NAV ──────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-logo">AJ<span class="dot">.</span></div>
+  <ul class="nav-links">
+    <li><a href="#hero" id="nav-home">Home</a></li>
+    <li><a href="#about" id="nav-about">About</a></li>
+    <li><a href="#projects" id="nav-projects">Projects</a></li>
+    <li><a href="#internships" id="nav-internships">Experience</a></li>
+    <li><a href="#skills" id="nav-skills">Skills</a></li>
+    <li><a href="#education" id="nav-edu">Education</a></li>
+    <li><a href="#contact" id="nav-contact">Contact</a></li>
+  </ul>
+  <a href="mailto:alan2004john@gmail.com" class="nav-cta btn-glow" id="nav-hire">Hire Me</a>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section id="hero">
+  <canvas id="bg-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge animate-fade-up" style="animation-delay:0.1s">👋  Hello, World!</div>
+    <h1 class="hero-title animate-fade-up" style="animation-delay:0.25s">
+      I'm <span class="gradient-text glitch" data-text="Alan John">Alan John</span>
+    </h1>
+    <div class="hero-roles animate-fade-up" style="animation-delay:0.4s">
+      <span class="role-prefix">A </span>
+      <div class="roles-wrapper">
+        <span class="role" id="typewriter"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+    </div>
+    <p class="hero-sub animate-fade-up" style="animation-delay:0.55s">
+      Full-Stack Developer · Blockchain Engineer · ML Enthusiast<br/>
+      B.Tech (AI Honours) @ CUSAT — CGPA 8.2
+    </p>
+    <div class="hero-actions animate-fade-up" style="animation-delay:0.7s">
+      <a href="#projects" class="btn-primary btn-glow" id="hero-work">View My Work</a>
+      <a href="#contact" class="btn-ghost" id="hero-contact">Let's Talk</a>
+    </div>
+    <div class="hero-stats animate-fade-up" style="animation-delay:0.85s">
+      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Projects</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Internships</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Certifications</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="8" data-decimal=".2">0</span><span class="stat-label">CGPA (Sem 4)</span></div>
+    </div>
+  </div>
+  <div class="hero-avatar animate-fade-left" style="animation-delay:0.4s">
+    <div class="avatar-ring ring-1"></div>
+    <div class="avatar-ring ring-2"></div>
+    <div class="avatar-ring ring-3"></div>
+    <div class="avatar-img-wrap">
+      <div class="avatar-monogram">
+        <span class="mono-a">A</span><span class="mono-j">J</span>
+        <div class="avatar-inner-ring"></div>
+        <div class="avatar-glow-pulse"></div>
+      </div>
+    </div>
+    <div class="floating-badge badge-1">⚡ React</div>
+    <div class="floating-badge badge-2">🔗 Web3</div>
+    <div class="floating-badge badge-3">🤖 ML</div>
+    <div class="floating-badge badge-4">🔥 Firebase</div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+    <span>Scroll Down</span>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get to Know Me</span>
+      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card card-3d reveal">
+        <div class="about-icon">🎯</div>
+        <h3>Career Objective</h3>
+        <p>To work for a reputed organization in a challenging and dynamic environment where I can use my skill set and knowledge to aid in achieving organizational goals — and challenge myself to grow more than yesterday while making meaningful connections.</p>
+      </div>
+      <div class="about-card card-3d reveal" style="animation-delay:0.15s">
+        <div class="about-icon">🎓</div>
+        <h3>Education</h3>
+        <p>Currently pursuing <strong>B.Tech (Minor in Electronics + Honours in AI/ML)</strong> at <strong>CUSAT</strong>, graduating 2027. Maintaining a strong CGPA of <strong>8.2</strong> in Semester 4.</p>
+      </div>
+      <div class="about-card card-3d reveal" style="animation-delay:0.3s">
+        <div class="about-icon">🌍</div>
+        <h3>Background</h3>
+        <p>Based in <strong>Varanasi, UP, India</strong>. Fluent in <strong>Hindi, English & Malayalam</strong>. Passionate about Chess, strategic thinking and Roller Skating in my downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ──────────────────────────────────────────── -->
+<section id="projects" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What I've Built</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card card-3d reveal" id="proj-ecommerce">
+        <div class="project-glow"></div>
+        <div class="project-top">
+          <div class="project-icon">🛒</div>
+          <div class="project-duration">1 Month</div>
+        </div>
+        <h3 class="project-title">E-Commerce Trading Platform</h3>
+        <p class="project-desc">Full-stack e-commerce platform with real-time inventory, authentication, product listings, cart, and order workflow — powered by React & Firebase.</p>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Firestore</span>
+          <span class="tag">Auth</span>
+        </div>
+        <ul class="project-bullets">
+          <li>✦ Scalable Firestore database structure</li>
+          <li>✦ Real-time inventory updates</li>
+          <li>✦ Full authentication & order workflow</li>
+        </ul>
+        <div class="project-footer">
+          <a href="https://github.com/alan2004john" target="_blank" rel="noopener" class="proj-link" id="ecommerce-github">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card card-3d reveal" id="proj-music" style="animation-delay:0.15s">
+        <div class="project-glow" style="--glow-color: #f59e0b;"></div>
+        <div class="project-top">
+          <div class="project-icon">🎵</div>
+          <div class="project-duration">2 Weeks</div>
+        </div>
+        <h3 class="project-title">Music Recommender</h3>
+        <p class="project-desc">ML-powered music recommendation engine built during internship at Strokkx Technologies, Kochi — under Alay Jayan Sir.</p>
+        <div class="project-tags">
+          <span class="tag" style="--tag-color:#f59e0b">Python</span>
+          <span class="tag" style="--tag-color:#f59e0b">ML</span>
+          <span class="tag" style="--tag-color:#f59e0b">REST API</span>
+          <span class="tag" style="--tag-color:#f59e0b">Scikit-learn</span>
+        </div>
+        <ul class="project-bullets">
+          <li>✦ Supervised & unsupervised ML models</li>
+          <li>✦ Compared algorithms for best accuracy</li>
+          <li>✦ Preprocessing optimization to cut latency</li>
+        </ul>
+        <div class="project-footer">
+          <a href="https://github.com/alan2004john" target="_blank" rel="noopener" class="proj-link" id="music-github">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card card-3d reveal" id="proj-chat" style="animation-delay:0.3s">
+        <div class="project-glow" style="--glow-color: #10b981;"></div>
+        <div class="project-top">
+          <div class="project-icon">💬</div>
+          <div class="project-duration">1 Month</div>
+        </div>
+        <h3 class="project-title">Real-Time Chat App</h3>
+        <p class="project-desc">WhatsApp-like real-time messaging platform built during internship at Null Class, Chennai. Firebase powered with Cloudinary media storage.</p>
+        <div class="project-tags">
+          <span class="tag" style="--tag-color:#10b981">Firebase</span>
+          <span class="tag" style="--tag-color:#10b981">Cloudinary</span>
+          <span class="tag" style="--tag-color:#10b981">WebSocket</span>
+          <span class="tag" style="--tag-color:#10b981">Firestore</span>
+        </div>
+        <ul class="project-bullets">
+          <li>✦ Secure auth & media storage via Cloudinary</li>
+          <li>✦ WebSocket architecture research</li>
+          <li>✦ Secure real-time database rules</li>
+        </ul>
+        <div class="project-footer">
+          <a href="https://github.com/alan2004john" target="_blank" rel="noopener" class="proj-link" id="chat-github">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card card-3d reveal" id="proj-web3" style="animation-delay:0.45s">
+        <div class="project-glow" style="--glow-color: #a855f7;"></div>
+        <div class="project-top">
+          <div class="project-icon">🔗</div>
+          <div class="project-duration">3 Months</div>
+        </div>
+        <h3 class="project-title">Web3 Product Verifier</h3>
+        <p class="project-desc">QR-based blockchain authentication system using Solidity smart contracts. Soulbound Tokens for tamper-proof product ownership validation.</p>
+        <div class="project-tags">
+          <span class="tag" style="--tag-color:#a855f7">Solidity</span>
+          <span class="tag" style="--tag-color:#a855f7">Hardhat</span>
+          <span class="tag" style="--tag-color:#a855f7">OpenZeppelin</span>
+          <span class="tag" style="--tag-color:#a855f7">SBT</span>
+        </div>
+        <ul class="project-bullets">
+          <li>✦ Soulbound Tokens (SBT) for ownership</li>
+          <li>✦ Deployed via Hardhat & OpenZeppelin</li>
+          <li>✦ QR-based product authentication</li>
+        </ul>
+        <div class="project-footer">
+          <a href="https://github.com/alan2004john" target="_blank" rel="noopener" class="proj-link" id="web3-github">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            View Code
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── INTERNSHIPS ───────────────────────────────────────── -->
+<section id="internships" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Work Experience</span>
+      <h2 class="section-title">My <span class="gradient-text">Internships</span></h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item reveal" id="intern-strokkx">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card card-3d">
+          <div class="timeline-header">
+            <div>
+              <h3>Strokkx Technologies</h3>
+              <span class="timeline-location">📍 Kochi, Kerala</span>
+            </div>
+            <span class="timeline-date">June – July 2025</span>
+          </div>
+          <p class="timeline-role">ML Engineer Intern</p>
+          <ul class="timeline-bullets">
+            <li>Built ML-based music recommendation engine</li>
+            <li>Applied supervised & clustering algorithms</li>
+            <li>Analyzed user behavior datasets</li>
+            <li>Integrated backend APIs with web interface</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" id="intern-nullclass" style="animation-delay:0.2s">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card card-3d">
+          <div class="timeline-header">
+            <div>
+              <h3>Null Class</h3>
+              <span class="timeline-location">📍 Chennai, Tamil Nadu</span>
+            </div>
+            <span class="timeline-date">June – July 2024</span>
+          </div>
+          <p class="timeline-role">Full-Stack Developer Intern</p>
+          <ul class="timeline-bullets">
+            <li>Designed scalable chat application using Firebase</li>
+            <li>Implemented real-time messaging architecture</li>
+            <li>Optimized Firestore queries for faster performance</li>
+            <li>Engineered real-time messaging system</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Firebase</span>
+            <span class="tag">React</span>
+            <span class="tag">Firestore</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ────────────────────────────────────────────── -->
+<section id="skills" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Technical Arsenal</span>
+      <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-category card-3d reveal" id="skill-lang">
+        <div class="skill-cat-icon">💻</div>
+        <h3>Programming Languages</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">PHP</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Solidity</span>
+        </div>
+      </div>
+
+      <div class="skill-category card-3d reveal" id="skill-web" style="animation-delay:0.1s">
+        <div class="skill-cat-icon">🌐</div>
+        <h3>Web Technologies</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">React.js</span>
+          <span class="skill-pill">Next.js</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">HTML5</span>
+        </div>
+      </div>
+
+      <div class="skill-category card-3d reveal" id="skill-db" style="animation-delay:0.2s">
+        <div class="skill-cat-icon">🗄️</div>
+        <h3>Databases</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">MongoDB Atlas</span>
+          <span class="skill-pill">Firebase</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">Neon</span>
+          <span class="skill-pill">IPFS/Pinata</span>
+        </div>
+      </div>
+
+      <div class="skill-category card-3d reveal" id="skill-special" style="animation-delay:0.3s">
+        <div class="skill-cat-icon">⚡</div>
+        <h3>Specialized Areas</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Smart Contracts</span>
+          <span class="skill-pill">NFTs / SBT</span>
+          <span class="skill-pill">ML / AI</span>
+          <span class="skill-pill">DSA</span>
+          <span class="skill-pill">Firebase</span>
+        </div>
+      </div>
+
+      <div class="skill-category card-3d reveal" id="skill-os" style="animation-delay:0.4s">
+        <div class="skill-cat-icon">🖥️</div>
+        <h3>Operating Systems</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Windows</span>
+          <span class="skill-pill">Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-category card-3d reveal" id="skill-langs" style="animation-delay:0.5s">
+        <div class="skill-cat-icon">🌏</div>
+        <h3>Languages Spoken</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Hindi (Native)</span>
+          <span class="skill-pill">English (Professional)</span>
+          <span class="skill-pill">Malayalam (Professional)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── EDUCATION ─────────────────────────────────────────── -->
+<section id="education" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Academic Background</span>
+      <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+    </div>
+
+    <div class="edu-grid">
+
+      <div class="edu-card card-3d reveal" id="edu-btech">
+        <div class="edu-year">2027</div>
+        <div class="edu-icon">🎓</div>
+        <h3>B.Tech (AI Honours + Electronics Minor)</h3>
+        <p class="edu-inst">Cochin University of Science and Technology (CUSAT)</p>
+        <div class="edu-cgpa">CGPA: <strong>8.2</strong> (Sem 4)</div>
+        <div class="edu-badges">
+          <span class="edu-badge">Minor in Electronics (Ongoing)</span>
+          <span class="edu-badge">Honours in AI & ML (Ongoing)</span>
+        </div>
+      </div>
+
+      <div class="edu-card card-3d reveal" id="edu-12" style="animation-delay:0.15s">
+        <div class="edu-year">2023</div>
+        <div class="edu-icon">📚</div>
+        <h3>Class XII — ISC</h3>
+        <p class="edu-inst">Indian School Certificate</p>
+        <div class="edu-cgpa">Score: <strong>89%</strong></div>
+      </div>
+
+      <div class="edu-card card-3d reveal" id="edu-10" style="animation-delay:0.3s">
+        <div class="edu-year">2021</div>
+        <div class="edu-icon">📖</div>
+        <h3>Class X — ICSE</h3>
+        <p class="edu-inst">Indian Certificate of Secondary Education</p>
+        <div class="edu-cgpa">Score: <strong>93%</strong></div>
+      </div>
+
+    </div>
+
+    <!-- Certifications -->
+    <div class="section-header" style="margin-top:5rem">
+      <span class="section-tag">Credentials</span>
+      <h2 class="section-title">My <span class="gradient-text">Certifications</span></h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card card-3d reveal" id="cert-1">
+        <div class="cert-badge">ELITE + SILVER</div>
+        <div class="cert-icon">🐍</div>
+        <h4>Python for Data Science</h4>
+        <p>NPTEL</p>
+      </div>
+      <div class="cert-card card-3d reveal" id="cert-2" style="animation-delay:0.1s">
+        <div class="cert-badge">ELITE</div>
+        <div class="cert-icon">🤖</div>
+        <h4>Introduction to Machine Learning</h4>
+        <p>NPTEL</p>
+      </div>
+      <div class="cert-card card-3d reveal" id="cert-3" style="animation-delay:0.2s">
+        <div class="cert-badge">ELITE</div>
+        <div class="cert-icon">🔗</div>
+        <h4>Blockchain & Its Applications</h4>
+        <p>NPTEL</p>
+      </div>
+      <div class="cert-card card-3d reveal" id="cert-4" style="animation-delay:0.3s">
+        <div class="cert-badge">ELITE</div>
+        <div class="cert-icon">🔌</div>
+        <h4>PCB Designing & CAD (EC Minors)</h4>
+        <p>NPTEL</p>
+      </div>
+      <div class="cert-card card-3d reveal" id="cert-5" style="animation-delay:0.4s">
+        <div class="cert-badge">ELITE</div>
+        <div class="cert-icon">⚡</div>
+        <h4>Electrical Measurement & Electronic Instruments</h4>
+        <p>NPTEL</p>
+      </div>
+      <div class="cert-card card-3d reveal" id="cert-6" style="animation-delay:0.5s">
+        <div class="cert-badge">Level 7</div>
+        <div class="cert-icon">🧮</div>
+        <h4>Jigsaw Abacus</h4>
+        <p>Level 7 Certification</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── HOBBIES ────────────────────────────────────────────── -->
+<section id="hobbies" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Beyond Code</span>
+      <h2 class="section-title">My <span class="gradient-text">Interests</span></h2>
+    </div>
+    <div class="hobbies-grid">
+      <div class="hobby-card card-3d reveal" id="hobby-chess">
+        <div class="hobby-icon">♟️</div>
+        <h3>Chess</h3>
+        <p>Strategic thinking & pattern recognition fuel both my chess game and my approach to problem solving in code.</p>
+      </div>
+      <div class="hobby-card card-3d reveal" id="hobby-mystery" style="animation-delay:0.15s">
+        <div class="hobby-icon">🔍</div>
+        <h3>Solving Mysteries</h3>
+        <p>Love unraveling complex puzzles — whether it's a cryptic bug, a logic puzzle, or a good mystery story.</p>
+      </div>
+      <div class="hobby-card card-3d reveal" id="hobby-skating" style="animation-delay:0.3s">
+        <div class="hobby-icon">🛼</div>
+        <h3>Roller Skating</h3>
+        <p>Balancing on wheels keeps me grounded and adds a fun, creative dimension to my daily life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────────────────────── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="section-sub">Whether it's a project, an opportunity, or just a hello — I'd love to hear from you!</p>
+    </div>
+
+    <div class="contact-grid">
+      <a href="mailto:alan2004john@gmail.com" class="contact-card card-3d reveal" id="contact-email" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Email</h3>
+        <p>alan2004john@gmail.com</p>
+      </a>
+
+      <a href="https://www.linkedin.com/in/alan-john" target="_blank" rel="noopener" class="contact-card card-3d reveal" id="contact-linkedin" style="animation-delay:0.15s">
+        <div class="contact-icon" style="--icon-color:#0a66c2">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <h3>LinkedIn</h3>
+        <p>linkedin.com/in/alan-john</p>
+      </a>
+
+      <a href="https://github.com/alan2004john" target="_blank" rel="noopener" class="contact-card card-3d reveal" id="contact-github" style="animation-delay:0.3s">
+        <div class="contact-icon" style="--icon-color:#6e5494">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </div>
+        <h3>GitHub</h3>
+        <p>github.com/alan2004john</p>
+      </a>
+
+      <div class="contact-card card-3d reveal" id="contact-phone" style="animation-delay:0.45s">
+        <div class="contact-icon" style="--icon-color:#22c55e">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.42 2 2 0 0 1 3.62 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-1.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>Phone</h3>
+        <p>+91 91511 12723</p>
+      </div>
+
+      <div class="contact-card card-3d reveal" id="contact-location" style="animation-delay:0.6s">
+        <div class="contact-icon" style="--icon-color:#ef4444">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Location</h3>
+        <p>Sunderpur, Varanasi, UP, India</p>
+      </div>
+
+    </div>
+
+    <div class="contact-cta reveal">
+      <a href="mailto:alan2004john@gmail.com" class="btn-primary btn-glow btn-large" id="cta-email">
+        Send Me an Email ✉️
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Alan John<span class="dot">.</span></div>
+    <p class="footer-sub">Full-Stack · Blockchain · ML</p>
+    <div class="footer-links">
+      <a href="mailto:alan2004john@gmail.com" id="footer-email">Email</a>
+      <a href="https://www.linkedin.com/in/alan-john" target="_blank" rel="noopener" id="footer-linkedin">LinkedIn</a>
+      <a href="https://github.com/alan2004john" target="_blank" rel="noopener" id="footer-github">GitHub</a>
+    </div>
+    <p class="footer-copy">© 2025 Alan John. Crafted with ❤️ &amp; code.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
