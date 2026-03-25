@@ -281,7 +281,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
   const hero = document.querySelector('.hero-content');
-  const avatar = document.querySelector('.hero-avatar');
+  const avatar = document.querySelector('.tech-viz');
   if (hero && avatar && window.innerWidth > 900) {
     hero.style.transform = `translateY(${y * 0.15}px)`;
     avatar.style.transform = `translateY(${y * 0.08}px)`;
