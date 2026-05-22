@@ -1,307 +1,331 @@
-/* ═══════════════════════════════════════════════════
-   ALAN JOHN PORTFOLIO — JavaScript
-   3D Interactions, Animations, Canvas Background
-═══════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════
+   ALAN JOHN PORTFOLIO  ·  script.js
+   Creative Mints Bento Interactions
+ ════════════════════════════════════════════════ */
 
-/* ── Typewriter Roles ────────────────────────────── */
-const roles = [
-  "Full-Stack Developer",
-  "Blockchain Engineer",
-  "ML Enthusiast",
-  "React Developer",
-  "Smart Contract Dev",
-  "Problem Solver"
-];
+/* ── Theme Switcher (Persistent LocalStorage) ─── */
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-let roleIdx = 0, charIdx = 0, deleting = false;
-const typeEl = document.getElementById('typewriter');
-
-function typeLoop() {
-  const current = roles[roleIdx];
-  if (!deleting) {
-    typeEl.textContent = current.slice(0, ++charIdx);
-    if (charIdx === current.length) {
-      deleting = true;
-      setTimeout(typeLoop, 1800);
-      return;
-    }
-  } else {
-    typeEl.textContent = current.slice(0, --charIdx);
-    if (charIdx === 0) {
-      deleting = false;
-      roleIdx = (roleIdx + 1) % roles.length;
-    }
-  }
-  setTimeout(typeLoop, deleting ? 60 : 100);
+// Load stored theme
+const storedTheme = localStorage.getItem('theme');
+if (storedTheme === 'dark') {
+  body.classList.add('dark-theme');
+} else {
+  body.classList.remove('dark-theme');
 }
-typeLoop();
 
-/* ── Custom Cursor ───────────────────────────────── */
-const cursor = document.getElementById('cursor');
-const trail  = document.getElementById('cursor-trail');
-let mx = 0, my = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top  = my + 'px';
-  trail.style.left  = mx + 'px';
-  trail.style.top   = my + 'px';
-});
-
-document.querySelectorAll('a, button, .card-3d, .skill-pill').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-    trail.style.transform  = 'translate(-50%,-50%) scale(1.5)';
-    cursor.style.opacity   = '0.7';
+// Toggle listener
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    const isDark = body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Notify particle system to update colors
+    if (typeof updateParticleColors === 'function') {
+      updateParticleColors();
+    }
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-    trail.style.transform  = 'translate(-50%,-50%) scale(1)';
-    cursor.style.opacity   = '1';
-  });
-});
+}
 
-/* ── Navbar Scroll ───────────────────────────────── */
-const navbar = document.getElementById('navbar');
+/* ── Scroll Progress Bar ──────────────────────── */
+const bar = document.createElement('div');
+bar.id = 'progress-bar';
+body.prepend(bar);
+
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const percentage = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+  bar.style.width = percentage + '%';
+}, { passive: true });
 
-/* ── Hamburger Menu ──────────────────────────────── */
-const ham  = document.getElementById('hamburger');
-const navL = document.querySelector('.nav-links');
-ham.addEventListener('click', () => {
-  navL.classList.toggle('open');
-  const spans = ham.querySelectorAll('span');
-  if (navL.classList.contains('open')) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-    spans[1].style.opacity   = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-  } else {
-    spans[0].style.transform = '';
-    spans[1].style.opacity   = '';
-    spans[2].style.transform = '';
+/* ── Custom Hover Cursor ───────────────────────── */
+const cur = document.getElementById('cur');
+let cx = 0, cy = 0;
+document.addEventListener('mousemove', e => {
+  cx = e.clientX;
+  cy = e.clientY;
+  if (cur) {
+    cur.style.left = cx + 'px';
+    cur.style.top  = cy + 'px';
   }
-});
-navL.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    navL.classList.remove('open');
-    const spans = ham.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity   = '';
-    spans[2].style.transform = '';
-  });
+}, { passive: true });
+
+document.querySelectorAll('a, button, .bento-card, .proj-card, .skill-pills-list span, .contact-item-link').forEach(el => {
+  el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
 });
 
-/* ── Intersection Observer — Reveal ─────────────── */
-const reveals = document.querySelectorAll('.reveal');
-const revObs  = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
+/* ── Navbar Scroll Effect ──────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (nav) {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+}, { passive: true });
+
+/* ── Active Navigation Link Tracking ───────────── */
+const navLinks = document.querySelectorAll('.nav-center a');
+const sections = document.querySelectorAll('section[id]');
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
     if (e.isIntersecting) {
-      const delay = parseFloat(e.target.style.animationDelay || 0) * 1000;
-      setTimeout(() => e.target.classList.add('visible'), delay);
+      navLinks.forEach(a => a.classList.remove('active'));
+      const activeLink = document.querySelector(`.nav-center a[href="#${e.target.id}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
     }
   });
-}, { threshold: 0.12 });
-reveals.forEach(el => revObs.observe(el));
+}, { threshold: 0.25 });
+sections.forEach(s => sectionObserver.observe(s));
 
-/* ── Animated Counter ────────────────────────────── */
-const statNums = document.querySelectorAll('.stat-num');
-const numObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseFloat(el.getAttribute('data-target'));
-      const hasDecimal = el.hasAttribute('data-decimal');
-      let current = 0;
-      const step = target / 60;
-      const interval = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = hasDecimal
-          ? current.toFixed(1)
-          : Math.round(current);
-        if (current >= target) clearInterval(interval);
-      }, 25);
-      numObs.unobserve(el);
+/* ── Hamburger Mobile Menu ─────────────────────── */
+const ham = document.getElementById('ham');
+const mobMenu = document.getElementById('mob-menu');
+if (ham && mobMenu) {
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mobMenu.classList.toggle('open');
+    body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  
+  document.querySelectorAll('.mob-link, .mob-hire').forEach(link => {
+    link.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobMenu.classList.remove('open');
+      body.style.overflow = '';
+    });
+  });
+}
+
+/* ── Smooth Scroll Offset ──────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const targetId = a.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      e.preventDefault();
+      const navHeight = nav ? nav.offsetHeight : 70;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navHeight - 15,
+        behavior: 'smooth'
+      });
     }
+  });
+});
+
+/* ── Stat Metric Counters ──────────────────────── */
+const statObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const targetValue = parseFloat(el.dataset.target);
+    const hasDecimal = el.hasAttribute('data-decimal');
+    let currentValue = 0;
+    const steps = 40;
+    const stepIncrement = targetValue / steps;
+    
+    const countTimer = setInterval(() => {
+      currentValue = Math.min(currentValue + stepIncrement, targetValue);
+      el.textContent = hasDecimal ? currentValue.toFixed(2) : Math.round(currentValue);
+      if (currentValue >= targetValue) {
+        clearInterval(countTimer);
+      }
+    }, 25);
+    statObserver.unobserve(el);
   });
 }, { threshold: 0.5 });
-statNums.forEach(n => numObs.observe(n));
 
-/* ── 3D Tilt on Cards ─────────────────────────────── */
-document.querySelectorAll('.card-3d').forEach(card => {
+document.querySelectorAll('.dash-num').forEach(el => statObserver.observe(el));
+
+/* ── Typewriter Console Effect ─────────────────── */
+const roles = [
+  'Full-Stack Developer',
+  'Blockchain Engineer',
+  'ML Specialist',
+  'Problem Solver',
+  'CUSAT AI Student'
+];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typewriterSpan = document.getElementById('typewriter');
+
+if (typewriterSpan) {
+  (function writeLoop() {
+    const currentWord = roles[roleIndex];
+    typewriterSpan.textContent = isDeleting 
+      ? currentWord.slice(0, --charIndex) 
+      : currentWord.slice(0, ++charIndex);
+      
+    if (!isDeleting && charIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(writeLoop, 2000);
+      return;
+    }
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+    setTimeout(writeLoop, isDeleting ? 40 : 80);
+  })();
+}
+
+/* ── 3D Card Parallax Tilt on Hover ────────────── */
+document.querySelectorAll('.bento-card, .proj-card, .cert-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width  / 2;
-    const cy = rect.top  + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width  / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-    card.style.transform = `
-      perspective(900px)
-      rotateX(${-dy * 8}deg)
-      rotateY(${dx * 8}deg)
-      translateY(-8px)
-      scale(1.02)
-    `;
+    // Calculate cursor location relative to card center (-0.5 to 0.5)
+    const relativeX = (e.clientX - rect.left) / rect.width - 0.5;
+    const relativeY = (e.clientY - rect.top) / rect.height - 0.5;
+    
+    // Max rotation 8 degrees
+    const rotateX = -relativeY * 10;
+    const rotateY = relativeX * 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
   });
+  
   card.addEventListener('mouseleave', () => {
     card.style.transform = '';
   });
 });
 
-/* ── Active Nav Link on Scroll ───────────────────── */
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  let pos = window.scrollY + 100;
-  sections.forEach(sec => {
-    if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.style.color = '';
-      });
-      const active = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
-      if (active) active.style.color = 'var(--text)';
+/* ── Parallax Hero Canvas ──────────────────────── */
+const canvas = document.getElementById('bg-canvas');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  let particles = [];
+  
+  function resizeCanvas() {
+    W = canvas.width = canvas.parentElement.offsetWidth;
+    H = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    setupParticles();
+  }, { passive: true });
+  
+  let primaryColor, lineColor;
+  
+  window.updateParticleColors = function() {
+    const isDark = document.body.classList.contains('dark-theme');
+    if (isDark) {
+      primaryColor = 'rgba(93, 173, 226, 0.4)';  // Slate Blue
+      lineColor = 'rgba(93, 173, 226, 0.08)';
+    } else {
+      primaryColor = 'rgba(211, 84, 0, 0.35)';   // Terracotta Orange
+      lineColor = 'rgba(211, 84, 0, 0.06)';
     }
+    
+    particles.forEach(p => {
+      p.color = primaryColor;
+    });
+  };
+  
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.35;
+      this.vy = (Math.random() - 0.5) * 0.35;
+      this.radius = Math.random() * 1.5 + 0.5;
+      this.color = primaryColor;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      if (this.x < 0 || this.x > W) this.vx *= -1;
+      if (this.y < 0 || this.y > H) this.vy *= -1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
+  
+  function setupParticles() {
+    particles = Array.from({ length: Math.min(Math.floor(W * H / 18000), 75) }, () => new Particle());
+    updateParticleColors();
+  }
+  
+  let mouseX = -9999, mouseY = -9999;
+  canvas.parentElement.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  }, { passive: true });
+  
+  canvas.parentElement.addEventListener('mouseleave', () => {
+    mouseX = -9999;
+    mouseY = -9999;
   });
-});
-
-/* ══════════════════════════════════════════════════
-   CANVAS BACKGROUND — Particles & Connections
-══════════════════════════════════════════════════ */
-const canvas  = document.getElementById('bg-canvas');
-const ctx     = canvas.getContext('2d');
-let W, H, particles = [];
-
-function resize() {
-  W = canvas.width  = canvas.offsetWidth;
-  H = canvas.height = canvas.offsetHeight;
-}
-resize();
-window.addEventListener('resize', () => { resize(); initParticles(); });
-
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x  = Math.random() * W;
-    this.y  = Math.random() * H;
-    this.vx = (Math.random() - 0.5) * 0.5;
-    this.vy = (Math.random() - 0.5) * 0.5;
-    this.r  = Math.random() * 2.5 + 0.5;
-    this.a  = Math.random() * 0.6 + 0.2;
-    this.color = Math.random() > 0.5 ?
-      `rgba(124,58,237,${this.a})` :
-      `rgba(6,182,212,${this.a})`;
-  }
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0 || this.x > W) this.vx *= -1;
-    if (this.y < 0 || this.y > H) this.vy *= -1;
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-}
-
-function initParticles() {
-  const count = Math.min(Math.floor((W * H) / 10000), 150);
-  particles = Array.from({ length: count }, () => new Particle());
-}
-
-function drawConnections() {
-  const maxDist = 130;
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < maxDist) {
-        const alpha = (1 - dist / maxDist) * 0.25;
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(124,58,237,${alpha})`;
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
+  
+  function drawFrame() {
+    ctx.clearRect(0, 0, W, H);
+    
+    particles.forEach(p => {
+      // Mouse push/pull physics
+      if (mouseX !== -9999) {
+        const dx = p.x - mouseX;
+        const dy = p.y - mouseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 120) {
+          const force = (120 - dist) / 120;
+          p.vx += (dx / dist) * force * 0.015;
+          p.vy += (dy / dist) * force * 0.015;
+          
+          // Clamp velocity
+          const currentSpeed = Math.hypot(p.vx, p.vy);
+          if (currentSpeed > 1.2) {
+            p.vx = (p.vx / currentSpeed) * 1.2;
+            p.vy = (p.vy / currentSpeed) * 1.2;
+          }
+        }
+      }
+      p.update();
+      p.draw();
+    });
+    
+    // Draw connection lines
+    const lineLimit = 130;
+    ctx.lineWidth = 0.8;
+    ctx.strokeStyle = lineColor;
+    
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+        if (dist < lineLimit) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
       }
     }
+    
+    requestAnimationFrame(drawFrame);
   }
+  
+  setupParticles();
+  drawFrame();
 }
 
-// Mouse repulsion
-let mouseX = -9999, mouseY = -9999;
-document.addEventListener('mousemove', e => {
-  const rect = canvas.getBoundingClientRect();
-  mouseX = e.clientX - rect.left;
-  mouseY = e.clientY - rect.top;
-});
-
-function animate() {
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => {
-    // Mouse interaction
-    const dx = p.x - mouseX;
-    const dy = p.y - mouseY;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 100) {
-      const angle = Math.atan2(dy, dx);
-      const force = (100 - dist) / 100;
-      p.vx += Math.cos(angle) * force * 0.08;
-      p.vy += Math.sin(angle) * force * 0.08;
-      // Clamp velocity
-      const maxV = 3;
-      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-      if (speed > maxV) { p.vx *= maxV / speed; p.vy *= maxV / speed; }
-    }
-    p.update();
-    p.draw();
-  });
-  drawConnections();
-  requestAnimationFrame(animate);
-}
-
-initParticles();
-animate();
-
-/* ── Smooth Scroll Active ────────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-/* ── Parallax subtle on scroll ───────────────────── */
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  const hero = document.querySelector('.hero-content');
-  const avatar = document.querySelector('.tech-viz');
-  if (hero && avatar && window.innerWidth > 900) {
-    hero.style.transform = `translateY(${y * 0.15}px)`;
-    avatar.style.transform = `translateY(${y * 0.08}px)`;
-  }
-});
-
-/* ── Page Load Progress Bar ──────────────────────── */
-const progressBar = document.createElement('div');
-progressBar.style.cssText = `
-  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-  background: linear-gradient(90deg, #7c3aed, #06b6d4);
-  z-index: 99999; transition: width 0.3s ease;
-  box-shadow: 0 0 8px rgba(6,182,212,0.6);
-`;
-document.body.appendChild(progressBar);
-
-window.addEventListener('scroll', () => {
-  const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  progressBar.style.width = scrollPct + '%';
-});
-
-console.log('%c Alan John Portfolio ', 'background: #7c3aed; color: white; font-size: 16px; padding: 8px 16px; border-radius: 8px; font-weight: bold;');
-console.log('%c Full-Stack · Blockchain · ML', 'color: #06b6d4; font-size: 12px;');
+/* ── Console Branding ─────────────────────────── */
+console.log(
+  '%c ALAN JOHN · WEB BLUEPRINT ',
+  'background:#D35400; color:#FFFFFF; font-weight:900; font-size:14px; padding:6px 12px; border-radius:4px;'
+);
+console.log('%c Full-Stack Developer · Blockchain Engineer · ML Specialist ', 'color:#D35400; font-size:11px;');

@@ -1,273 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alan John | Full-Stack & Blockchain Developer</title>
-  <meta name="description" content="Alan John - Full-Stack Developer, Blockchain Engineer & ML Enthusiast. B.Tech student at CUSAT with expertise in React, Web3, Firebase & Machine Learning."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <title>Alan John — Full-Stack & Blockchain Developer</title>
+  <meta name="description" content="Alan John · Full-Stack Developer · Blockchain Engineer · ML Enthusiast · B.Tech AI Honours at CUSAT · CGPA 8.32"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<!-- ─── CURSOR ────────────────────────────────────────────── -->
-<div id="cursor"></div>
-<div id="cursor-trail"></div>
+<!-- NOISE OVERLAY -->
+<div class="noise"></div>
 
-<!-- ─── NAV ──────────────────────────────────────────────── -->
-<nav id="navbar">
-  <div class="nav-logo">AJ<span class="dot">.</span></div>
-  <ul class="nav-links">
-    <li><a href="#hero" id="nav-home">Home</a></li>
-    <li><a href="#about" id="nav-about">About</a></li>
-    <li><a href="#projects" id="nav-projects">Projects</a></li>
-    <li><a href="#internships" id="nav-internships">Experience</a></li>
-    <li><a href="#skills" id="nav-skills">Skills</a></li>
-    <li><a href="#education" id="nav-edu">Education</a></li>
-    <li><a href="#contact" id="nav-contact">Contact</a></li>
-  </ul>
-  <a href="mailto:alan2004john@gmail.com" class="nav-cta btn-glow" id="nav-hire">Hire Me</a>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+<!-- CURSOR -->
+<div id="cur"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <a href="#hero" class="monogram-brand">
+    <span class="mono-a">A</span><span class="mono-j">J</span><span class="mono-a">.</span>
+  </a>
+  <div class="nav-center">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+      <svg class="sun-icon" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="moon-icon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+      </svg>
+    </button>
+    <a href="mailto:alan2004john@gmail.com" class="nav-hire">Hire Me ↗</a>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- ─── HERO ──────────────────────────────────────────────── -->
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob-menu">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#projects" class="mob-link">Projects</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#credentials" class="mob-link">Credentials</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="mailto:alan2004john@gmail.com" class="mob-hire">Hire Me ↗</a>
+</div>
+
+<!-- HERO -->
 <section id="hero">
-  <canvas id="bg-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-badge animate-fade-up" style="animation-delay:0.1s">👋  Hello, Everyone!</div>
-    <h1 class="hero-title animate-fade-up" style="animation-delay:0.25s">
-      I'm <span class="gradient-text glitch" data-text="Alan John">Alan John</span>
-    </h1>
-    <div class="hero-roles animate-fade-up" style="animation-delay:0.4s">
-      <span class="role-prefix">A </span>
-      <div class="roles-wrapper">
-        <span class="role" id="typewriter"></span>
-        <span class="cursor-blink">|</span>
+  <canvas id="bg-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.8;"></canvas>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="hero-bento-container">
+      
+      <!-- Main Greetings Bento -->
+      <div class="bento-card bento-hero-main">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          Available for Opportunities
+        </div>
+        <h1 class="hero-name">
+          Designing <span class="accent">systems,</span><br/>
+          coding the <span class="bold text-accent">future.</span>
+        </h1>
+        <p class="hero-desc">
+          I'm <strong>Alan John</strong>, a Full-Stack Developer and Blockchain Engineer building highly robust smart contracts, decentralized architectures, and ML models.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">Explore Work ↓</a>
+          <a href="#contact" class="btn-secondary">Let's Connect ↗</a>
+        </div>
       </div>
-    </div>
-    <p class="hero-sub animate-fade-up" style="animation-delay:0.55s">
-      Full-Stack Developer · Blockchain Engineer · ML Enthusiast<br/>
-      B.Tech (AI Honours) @ CUSAT — CGPA 8.2
-    </p>
-    <div class="hero-actions animate-fade-up" style="animation-delay:0.7s">
-      <a href="https://github.com/AlanJohn04" class="btn-primary btn-glow" id="hero-work">View My Work</a>
-      <a href="mailto:alan2004john@gmail.com" class="btn-ghost" id="hero-contact">Let's Talk</a>
-    </div>
-    <div class="hero-stats animate-fade-up" style="animation-delay:0.85s">
-      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Projects</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Internships</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Certifications</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="8" data-decimal=".2">0</span><span class="stat-label">CGPA (Sem 4)</span></div>
-    </div>
-  </div>
-  <div class="tech-viz animate-fade-left" style="animation-delay:0.4s">
-    <!-- HUD Corner Brackets -->
-    <span class="hc hc-tl"></span>
-    <span class="hc hc-tr"></span>
-    <span class="hc hc-bl"></span>
-    <span class="hc hc-br"></span>
 
-    <!-- Orbit Path Rings (visual dashed guides) -->
-    <div class="orb-path op1"></div>
-    <div class="orb-path op2"></div>
-    <div class="orb-path op3"></div>
-
-    <!-- Expanding Pulse Rings from core -->
-    <div class="pulse-ring pr1"></div>
-    <div class="pulse-ring pr2"></div>
-    <div class="pulse-ring pr3"></div>
-
-    <!-- Central Holographic Core -->
-    <div class="tv-sphere">
-      <div class="tv-sphere-conic"></div>
-      <div class="tv-radar-sweep"></div>
-      <div class="tv-grid-bg"></div>
-      <div class="tv-monogram">
-        <span class="tv-a">A</span><span class="tv-j">J</span>
+      <!-- Stats Dashboard Bento -->
+      <div class="bento-card bento-hero-dashboard">
+        <div class="dash-head">
+          <span class="dash-title">Developer Console</span>
+          <span class="dash-circle"></span>
+        </div>
+        <div class="dash-stats-grid">
+          <div class="dash-stat-item">
+            <span class="dash-num" data-target="4">0</span>
+            <span class="dash-lbl">Built Projects</span>
+          </div>
+          <div class="dash-stat-item">
+            <span class="dash-num" data-target="2">0</span>
+            <span class="dash-lbl">Internships</span>
+          </div>
+          <div class="dash-stat-item">
+            <span class="dash-num" data-target="8">0</span>
+            <span class="dash-lbl">Certifications</span>
+          </div>
+          <div class="dash-stat-item">
+            <span class="dash-num" data-target="8" data-decimal=".32">0</span>
+            <span class="dash-lbl">CGPA Sem 5</span>
+          </div>
+        </div>
+        <div class="dash-footer">
+          <div class="dash-role-typed">A <span id="typewriter"></span><span class="tb">|</span></div>
+        </div>
       </div>
-      <div class="tv-scan"></div>
-      <div class="tv-inner-ring tvr1"></div>
-      <div class="tv-inner-ring tvr2"></div>
+
+      <!-- Quick highlight 1 -->
+      <div class="bento-card bento-hero-sub1">
+        <div class="h-icon-box">🎓</div>
+        <div>
+          <h4>B.Tech AI Honours</h4>
+          <p>Cochin University (CUSAT)</p>
+        </div>
+      </div>
+
+      <!-- Quick highlight 2 -->
+      <div class="bento-card bento-hero-sub2">
+        <div class="h-icon-box">📍</div>
+        <div>
+          <h4>Varanasi, UP</h4>
+          <p>India · Available Globally</p>
+        </div>
+      </div>
+
+      <!-- Quick highlight 3 -->
+      <div class="bento-card bento-hero-sub3">
+        <div class="h-icon-box">⚡</div>
+        <div>
+          <h4>Web3 & ML Dev</h4>
+          <p>Smart Contracts, SBTs, Python</p>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Ring 1 skills (purple, 12s, r=135px) -->
-    <div class="skill-chip orb1 oc1">⚛ React</div>
-    <div class="skill-chip orb1 oc2">🔥 Firebase</div>
-    <div class="skill-chip orb1 oc3">🔗 Web3</div>
-
-    <!-- Ring 2 skills (cyan, 9s reverse, r=178px) -->
-    <div class="skill-chip orb2 oc4">🐍 Python</div>
-    <div class="skill-chip orb2 oc5">🤖 ML / AI</div>
-    <div class="skill-chip orb2 oc6">⛓ Solidity</div>
-
-    <!-- Ring 3 skills (amber, 7s, r=215px) -->
-    <div class="skill-chip orb3 oc7">▶ Next.js</div>
-    <div class="skill-chip orb3 oc8">🗄 MongoDB</div>
-
-    <!-- Floating Stat Cards -->
-    <div class="tv-stat tvs1"><b>8.2</b><em>CGPA</em></div>
-    <div class="tv-stat tvs2"><b>4+</b><em>Projects</em></div>
-    <div class="tv-stat tvs3"><b>2</b><em>Interns</em></div>
-    <div class="tv-stat tvs4"><b>5</b><em>Certs</em></div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-dot"></div>
-    <span>Scroll Down</span>
   </div>
 </section>
 
-<!-- ─── ABOUT ─────────────────────────────────────────────── -->
-<section id="about" class="section">
+<!-- ABOUT -->
+<section id="about" class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Get to Know Me</span>
-      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-card card-3d reveal">
-        <div class="about-icon">🎯</div>
+    <div class="sec-label">Who I Am</div>
+    <h2 class="sec-title">About <em>Myself</em></h2>
+    
+    <div class="bento-grid about-bento-grid">
+      
+      <!-- Career Objective -->
+      <div class="bento-card bento-about-intro">
         <h3>Career Objective</h3>
-        <p>To work for a reputed organization in a challenging and dynamic environment where I can use my skill set and knowledge to aid in achieving organizational goals — and challenge myself to grow more than yesterday while making meaningful connections.</p>
+        <p>
+          To work for a reputed organization in a challenging and dynamic environment where I can use my skill set and knowledge to aid in achieving organizational goals — and challenge myself to grow more than yesterday while making huge connections.
+        </p>
       </div>
-      <div class="about-card card-3d reveal" style="animation-delay:0.15s">
-        <div class="about-icon">🎓</div>
+
+      <!-- Education Timeline -->
+      <div class="bento-card bento-about-edu">
         <h3>Education</h3>
-        <p>Currently pursuing <strong>B.Tech (Minor in Electronics + Honours in AI/ML)</strong> at <strong>CUSAT</strong>, graduating 2027. Maintaining a strong CGPA of <strong>8.2</strong> in Semester 4.</p>
+        <div class="edu-timeline-mini">
+          <div class="edu-item-mini">
+            <span class="edu-year-stamp">2027</span>
+            <div>
+              <h4>B.Tech AI + Minors</h4>
+              <p>Cochin University (CUSAT) · 8.32 CGPA</p>
+            </div>
+          </div>
+          <div class="edu-item-mini">
+            <span class="edu-year-stamp">2023</span>
+            <div>
+              <h4>Class XII — ISC</h4>
+              <p>Indian School Certificate · 89%</p>
+            </div>
+          </div>
+          <div class="edu-item-mini">
+            <span class="edu-year-stamp">2021</span>
+            <div>
+              <h4>Class X — ICSE</h4>
+              <p>Indian Certificate Secondary Ed · 93%</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="about-card card-3d reveal" style="animation-delay:0.3s">
-        <div class="about-icon">🌍</div>
-        <h3>Background</h3>
-        <p>Based in <strong>Varanasi, UP, India</strong>. Fluent in <strong>Hindi, English & Malayalam</strong>. Passionate about Chess, strategic thinking and Roller Skating in my downtime.</p>
+
+      <!-- Professional Details -->
+      <div class="bento-card bento-about-details">
+        <h3>Professional Registry</h3>
+        <div class="details-table">
+          <span class="details-label">Address</span>
+          <span class="details-value">Sunderpur, Varanasi, UP, India</span>
+          
+          <span class="details-label">Email</span>
+          <span class="details-value">alan2004john@gmail.com</span>
+          
+          <span class="details-label">Phone</span>
+          <span class="details-value">+91 91511 12723</span>
+          
+          <span class="details-label">LinkedIn</span>
+          <span class="details-value">alan-john-40846b296</span>
+          
+          <span class="details-label">GitHub</span>
+          <span class="details-value">AlanJohn04</span>
+        </div>
       </div>
+
+      <!-- Hobbies & Beyond Code -->
+      <div class="bento-card bento-about-hobbies">
+        <h3>Beyond Code</h3>
+        <div class="hobby-item-row">
+          <span class="hobby-emoji">♟️</span>
+          <div class="hobby-text">
+            <h4>Chess & Strategic Thinking</h4>
+            <p>Solving complex grid positions translates to debugging code.</p>
+          </div>
+        </div>
+        <div class="hobby-item-row">
+          <span class="hobby-emoji">🔍</span>
+          <div class="hobby-text">
+            <h4>Solving Mysteries</h4>
+            <p>Passion for unravelling cryptic errors and logical puzzles.</p>
+          </div>
+        </div>
+        <div class="hobby-item-row">
+          <span class="hobby-emoji">🛼</span>
+          <div class="hobby-text">
+            <h4>Roller Skating</h4>
+            <p>Balancing on high wheels keeps me grounded and energized.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ──────────────────────────────────────────── -->
-<section id="projects" class="section section-dark">
+<!-- PROJECTS -->
+<section id="projects" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">What I've Built</span>
-      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-    </div>
+    <div class="sec-label">01. Portfolio</div>
+    <h2 class="sec-title">Featured <em>Creations</em></h2>
+    
     <div class="projects-grid">
-
-      <!-- Project 1 -->
-      <div class="project-card card-3d reveal" id="proj-ecommerce">
-        <div class="project-glow"></div>
-        <div class="project-top">
-          <div class="project-icon">🛒</div>
-          <div class="project-duration">1 Month</div>
+      
+      <!-- Project 1: Apex Response -->
+      <div class="bento-card proj-card" style="--ac: #D35400; --ac-rgb: 211, 84, 0;">
+        <span class="proj-card-accent"></span>
+        <div class="proj-head">
+          <span class="proj-avatar">🚨</span>
+          <span class="proj-duration">1 Month</span>
         </div>
-        <h3 class="project-title">E-Commerce Trading Platform</h3>
-        <p class="project-desc">Full-stack e-commerce platform with real-time inventory, authentication, product listings, cart, and order workflow — powered by React & Firebase.</p>
-        <div class="project-tags">
-          <span class="tag">React</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">Firestore</span>
-          <span class="tag">Auth</span>
+        <h3 class="proj-title">Apex Response Crisis Management</h3>
+        <p class="proj-desc">
+          A robust full-stack decentralized crisis verification platform integrated with blockchain security and AI-based real-time advisories.
+        </p>
+        <div class="proj-tags">
+          <span>React</span><span>Blockchain</span><span>Solidity</span><span>AI Advisor</span><span>SBT</span>
         </div>
-        <ul class="project-bullets">
-          <li>✦ Scalable Firestore database structure</li>
-          <li>✦ Real-time inventory updates</li>
-          <li>✦ Full authentication & order workflow</li>
+        <ul class="proj-bullet-list">
+          <li>Real-time SOS crisis verification triggered by the majority of the nearest 25 people and verified by AI.</li>
+          <li>Secured wallet address authentication mapped directly to Google, providing simple login for responders.</li>
+          <li>Implemented real-time QR shelter tracking, weather alerts, reputation systems, and Soulbound Tokens.</li>
         </ul>
-        <div class="project-footer">
-          <a href="https://github.com/AlanJohn04/music-recommender" target="_blank" rel="noopener" class="proj-link" id="ecommerce-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            View Code
-          </a>
+        <div class="proj-links">
+          <a href="https://github.com/AlanJohn04/Apex-Response" target="_blank" rel="noopener" class="proj-github-btn">View Code ↗</a>
+          <a href="https://apex-response.web.app/#/" target="_blank" rel="noopener" class="proj-github-btn">Live App ↗</a>
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card card-3d reveal" id="proj-music" style="animation-delay:0.15s">
-        <div class="project-glow" style="--glow-color: #f59e0b;"></div>
-        <div class="project-top">
-          <div class="project-icon">🎵</div>
-          <div class="project-duration">2 Weeks</div>
+      <!-- Project 2: 12 Angry Jury -->
+      <div class="bento-card proj-card" style="--ac: #7D3C98; --ac-rgb: 125, 60, 152;">
+        <span class="proj-card-accent"></span>
+        <div class="proj-head">
+          <span class="proj-avatar">⚖️</span>
+          <span class="proj-duration">1 Month</span>
         </div>
-        <h3 class="project-title">Music Recommender</h3>
-        <p class="project-desc">ML-powered music recommendation engine built during internship at Strokkx Technologies, Kochi — under Alay Jayan Sir.</p>
-        <div class="project-tags">
-          <span class="tag" style="--tag-color:#f59e0b">Python</span>
-          <span class="tag" style="--tag-color:#f59e0b">ML</span>
-          <span class="tag" style="--tag-color:#f59e0b">REST API</span>
-          <span class="tag" style="--tag-color:#f59e0b">Scikit-learn</span>
+        <h3 class="proj-title">12 Angry Jury Dec Resolution</h3>
+        <p class="proj-desc">
+          A decentralized legal consensus resolution engine running on smart contracts to settle disputes through community consensus.
+        </p>
+        <div class="proj-tags">
+          <span>Solidity</span><span>React</span><span>Node.js</span><span>Pinata IPFS</span><span>MetaMask</span>
         </div>
-        <ul class="project-bullets">
-          <li>✦ Supervised & unsupervised ML models</li>
-          <li>✦ Compared algorithms for best accuracy</li>
-          <li>✦ Preprocessing optimization to cut latency</li>
+        <ul class="proj-bullet-list">
+          <li>Developed Solidity smart contracts ensuring cryptographic validation of jury conflict summaries.</li>
+          <li>Built a responsive React interface enabling direct MetaMask wallet interactions and gas-optimized transactions.</li>
+          <li>Engineered Node.js backend linked with Pinata IPFS; integrated reputation staking to incentivize correct voting.</li>
         </ul>
-        <div class="project-footer">
-          <a href="https://github.com/AlanJohn04/music-recommender" target="_blank" rel="noopener" class="proj-link" id="music-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            View Code
-          </a>
+        <div class="proj-links">
+          <a href="https://github.com/AlanJohn04/12-angry-jurer" target="_blank" rel="noopener" class="proj-github-btn">View Code ↗</a>
+          <a href="https://12-angry-jurer-99fj.vercel.app/" target="_blank" rel="noopener" class="proj-github-btn">Live App ↗</a>
         </div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="project-card card-3d reveal" id="proj-chat" style="animation-delay:0.3s">
-        <div class="project-glow" style="--glow-color: #10b981;"></div>
-        <div class="project-top">
-          <div class="project-icon">💬</div>
-          <div class="project-duration">1 Month</div>
+      <!-- Project 3: Web3Product Verifier -->
+      <div class="bento-card proj-card" style="--ac: #2E86C1; --ac-rgb: 46, 134, 193;">
+        <span class="proj-card-accent"></span>
+        <div class="proj-head">
+          <span class="proj-avatar">🔒</span>
+          <span class="proj-duration">3 Months</span>
         </div>
-        <h3 class="project-title">Real-Time Chat App</h3>
-        <p class="project-desc">WhatsApp-like real-time messaging platform built during internship at Null Class, Chennai. Firebase powered with Cloudinary media storage.</p>
-        <div class="project-tags">
-          <span class="tag" style="--tag-color:#10b981">Firebase</span>
-          <span class="tag" style="--tag-color:#10b981">Cloudinary</span>
-          <span class="tag" style="--tag-color:#10b981">WebSocket</span>
-          <span class="tag" style="--tag-color:#10b981">Firestore</span>
+        <h3 class="proj-title">Web3 Product Authenticator</h3>
+        <p class="proj-desc">
+          QR-code security tracking mapping physical goods to digital identity on-chain to defeat counterfeits.
+        </p>
+        <div class="proj-tags">
+          <span>Solidity</span><span>Hardhat</span><span>OpenZeppelin</span><span>SBT</span><span>Cryptography</span>
         </div>
-        <ul class="project-bullets">
-          <li>✦ Secure auth & media storage via Cloudinary</li>
-          <li>✦ WebSocket architecture research</li>
-          <li>✦ Secure real-time database rules</li>
+        <ul class="proj-bullet-list">
+          <li>Constructed QR-based cryptographic blockchain token records validating supply chain custody.</li>
+          <li>Deployed high-reliability smart contracts via Hardhat, utilizing standard OpenZeppelin implementations.</li>
+          <li>Implemented tamper-proof Soulbound Tokens (SBT) confirming unique product ownership certificates.</li>
         </ul>
-        <div class="project-footer">
-          <a href="https://github.com/AlanJohn04/voting-system" target="_blank" rel="noopener" class="proj-link" id="chat-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            View Code
-          </a>
+        <div class="proj-links">
+          <a href="https://github.com/AlanJohn04/product-verification" target="_blank" rel="noopener" class="proj-github-btn">View Code ↗</a>
+          <a href="https://product-verification-nine.vercel.app/" target="_blank" rel="noopener" class="proj-github-btn">Live App ↗</a>
         </div>
       </div>
 
-      <!-- Project 4 -->
-      <div class="project-card card-3d reveal" id="proj-web3" style="animation-delay:0.45s">
-        <div class="project-glow" style="--glow-color: #a855f7;"></div>
-        <div class="project-top">
-          <div class="project-icon">🔗</div>
-          <div class="project-duration">3 Months</div>
+      <!-- Project 4: Music Recommender -->
+      <div class="bento-card proj-card" style="--ac: #D4AC0D; --ac-rgb: 212, 172, 13;">
+        <span class="proj-card-accent"></span>
+        <div class="proj-head">
+          <span class="proj-avatar">🎵</span>
+          <span class="proj-duration">2 Weeks</span>
         </div>
-        <h3 class="project-title">Web3 Product Verifier</h3>
-        <p class="project-desc">QR-based blockchain authentication system using Solidity smart contracts. Soulbound Tokens for tamper-proof product ownership validation.</p>
-        <div class="project-tags">
-          <span class="tag" style="--tag-color:#a855f7">Solidity</span>
-          <span class="tag" style="--tag-color:#a855f7">Hardhat</span>
-          <span class="tag" style="--tag-color:#a855f7">OpenZeppelin</span>
-          <span class="tag" style="--tag-color:#a855f7">SBT</span>
+        <h3 class="proj-title">ML-Powered Music Recommender</h3>
+        <p class="proj-desc">
+          Advanced algorithmic system targeting audio feature processing to predict and suggest tailored tracks.
+        </p>
+        <div class="proj-tags">
+          <span>Python</span><span>Machine Learning</span><span>REST API</span><span>Data Preprocessing</span>
         </div>
-        <ul class="project-bullets">
-          <li>✦ Soulbound Tokens (SBT) for ownership</li>
-          <li>✦ Deployed via Hardhat & OpenZeppelin</li>
-          <li>✦ QR-based product authentication</li>
+        <ul class="proj-bullet-list">
+          <li>Designed and compared supervised & unsupervised ML models (clustering, KNN) maximizing precision.</li>
+          <li>Built a web dashboard consuming ML backend logic directly through REST API gateways.</li>
+          <li>Reduced recommendation response latency through optimized dataset preprocessing and vector mappings.</li>
         </ul>
-        <div class="project-footer">
-          <a href="https://github.com/AlanJohn04/product-verification" target="_blank" rel="noopener" class="proj-link" id="web3-github">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            View Code
-          </a>
+        <div class="proj-links">
+          <a href="https://github.com/AlanJohn04/music-recommender" target="_blank" rel="noopener" class="proj-github-btn">View Code ↗</a>
+          <a href="https://music-recommender-steel.vercel.app/" target="_blank" rel="noopener" class="proj-github-btn">Live App ↗</a>
         </div>
       </div>
 
@@ -275,61 +348,54 @@
   </div>
 </section>
 
-<!-- ─── INTERNSHIPS ───────────────────────────────────────── -->
-<section id="internships" class="section">
+<!-- EXPERIENCE -->
+<section id="experience" class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Work Experience</span>
-      <h2 class="section-title">My <span class="gradient-text">Internships</span></h2>
-    </div>
-    <div class="timeline">
-
-      <div class="timeline-item reveal" id="intern-strokkx">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card card-3d">
-          <div class="timeline-header">
-            <div>
-              <h3>Strokkx Technologies</h3>
-              <span class="timeline-location">📍 Kochi, Kerala</span>
-            </div>
-            <span class="timeline-date">June – July 2025</span>
+    <div class="sec-label">02. Journey</div>
+    <h2 class="sec-title">Professional <em>Internships</em></h2>
+    
+    <div class="experience-container">
+      
+      <!-- Experience 1: Strokkx Technologies -->
+      <div class="bento-card exp-card">
+        <div class="exp-meta-card">
+          <div class="exp-company-block">
+            <span class="exp-comp-title">Strokkx Technologies</span>
+            <span class="exp-comp-loc">Kochi, Kerala</span>
+            <span class="exp-comp-date">June — July 2025</span>
           </div>
-          <p class="timeline-role">ML Engineer Intern</p>
-          <ul class="timeline-bullets">
-            <li>Built ML-based music recommendation engine</li>
-            <li>Applied supervised & clustering algorithms</li>
-            <li>Analyzed user behavior datasets</li>
-            <li>Integrated backend APIs with web interface</li>
+        </div>
+        <div class="exp-details-block">
+          <h3 class="exp-role-title">Machine Learning Engineer Intern</h3>
+          <ul class="exp-bullets">
+            <li>Built an end-to-end ML-based music recommendation engine analyzing complex listener dynamics.</li>
+            <li>Applied clustering models and supervised algorithms on large user behavior datasets.</li>
+            <li>Designed and deployed clean, lightweight REST APIs to bridge the Python ML backend with frontend UI panels.</li>
           </ul>
-          <div class="timeline-tags">
-            <span class="tag">Python</span>
-            <span class="tag">ML</span>
-            <span class="tag">REST API</span>
+          <div class="exp-tech-tags">
+            <span>Python</span><span>Machine Learning</span><span>REST APIs</span><span>Clustering Models</span><span>Scikit-learn</span>
           </div>
         </div>
       </div>
 
-      <div class="timeline-item reveal" id="intern-nullclass" style="animation-delay:0.2s">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card card-3d">
-          <div class="timeline-header">
-            <div>
-              <h3>Null Class</h3>
-              <span class="timeline-location">📍 Chennai, Tamil Nadu</span>
-            </div>
-            <span class="timeline-date">June – July 2024</span>
+      <!-- Experience 2: Null Class -->
+      <div class="bento-card exp-card">
+        <div class="exp-meta-card">
+          <div class="exp-company-block">
+            <span class="exp-comp-title">Null Class</span>
+            <span class="exp-comp-loc">Chennai, Tamil Nadu</span>
+            <span class="exp-comp-date">June — July 2024</span>
           </div>
-          <p class="timeline-role">Full-Stack Developer Intern</p>
-          <ul class="timeline-bullets">
-            <li>Designed scalable chat application using Firebase</li>
-            <li>Implemented real-time messaging architecture</li>
-            <li>Optimized Firestore queries for faster performance</li>
-            <li>Engineered real-time messaging system</li>
+        </div>
+        <div class="exp-details-block">
+          <h3 class="exp-role-title">Full-Stack Developer Intern</h3>
+          <ul class="exp-bullets">
+            <li>Designed a scalable, real-time messaging application using Firebase infrastructure.</li>
+            <li>Configured secure Firestore read/write structures and optimized queries for ultra-fast latency.</li>
+            <li>Built a responsive UI matching robust, thread-safe real-time state management paradigms.</li>
           </ul>
-          <div class="timeline-tags">
-            <span class="tag">Firebase</span>
-            <span class="tag">React</span>
-            <span class="tag">Firestore</span>
+          <div class="exp-tech-tags">
+            <span>Firebase</span><span>Firestore</span><span>React</span><span>Real-Time State</span><span>API Security</span>
           </div>
         </div>
       </div>
@@ -338,81 +404,66 @@
   </div>
 </section>
 
-<!-- ─── SKILLS ────────────────────────────────────────────── -->
-<section id="skills" class="section section-dark">
+<!-- SKILLS -->
+<section id="skills" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Technical Arsenal</span>
-      <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
-    </div>
-    <div class="skills-grid">
-
-      <div class="skill-category card-3d reveal" id="skill-lang">
-        <div class="skill-cat-icon">💻</div>
-        <h3>Programming Languages</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">C</span>
-          <span class="skill-pill">C++</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">PHP</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">Solidity</span>
+    <div class="sec-label">03. Skills</div>
+    <h2 class="sec-title">Technical <em>Arsenal</em></h2>
+    
+    <div class="bento-grid skills-grid">
+      
+      <!-- Languages -->
+      <div class="bento-card skill-card">
+        <div class="skill-card-header">
+          <span class="skill-card-icon">💻</span>
+          <h3>Programming Languages</h3>
+        </div>
+        <div class="skill-pills-list">
+          <span>Python</span><span>C</span><span>C++</span><span>Java</span><span>PHP</span><span>JavaScript</span><span>Solidity</span>
         </div>
       </div>
 
-      <div class="skill-category card-3d reveal" id="skill-web" style="animation-delay:0.1s">
-        <div class="skill-cat-icon">🌐</div>
-        <h3>Web Technologies</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">React.js</span>
-          <span class="skill-pill">Next.js</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">CSS3</span>
-          <span class="skill-pill">HTML5</span>
+      <!-- Web Tech -->
+      <div class="bento-card skill-card">
+        <div class="skill-card-header">
+          <span class="skill-card-icon">🌐</span>
+          <h3>Web Technologies</h3>
+        </div>
+        <div class="skill-pills-list">
+          <span>React JS</span><span>Next JS</span><span>HTML5</span><span>CSS3</span><span>ES6+ JS</span>
         </div>
       </div>
 
-      <div class="skill-category card-3d reveal" id="skill-db" style="animation-delay:0.2s">
-        <div class="skill-cat-icon">🗄️</div>
-        <h3>Databases</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">MongoDB Atlas</span>
-          <span class="skill-pill">Firebase</span>
-          <span class="skill-pill">MySQL</span>
-          <span class="skill-pill">Neon</span>
-          <span class="skill-pill">IPFS/Pinata</span>
+      <!-- Databases -->
+      <div class="bento-card skill-card">
+        <div class="skill-card-header">
+          <span class="skill-card-icon">🗄️</span>
+          <h3>Databases & Cloud</h3>
+        </div>
+        <div class="skill-pills-list">
+          <span>MongoDB Atlas</span><span>Firebase</span><span>MySQL</span><span>Neon</span><span>Pinata IPFS</span>
         </div>
       </div>
 
-      <div class="skill-category card-3d reveal" id="skill-special" style="animation-delay:0.3s">
-        <div class="skill-cat-icon">⚡</div>
-        <h3>Specialized Areas</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">Smart Contracts</span>
-          <span class="skill-pill">NFTs / SBT</span>
-          <span class="skill-pill">ML / AI</span>
-          <span class="skill-pill">DSA</span>
-          <span class="skill-pill">Firebase</span>
+      <!-- Specialized -->
+      <div class="bento-card skill-card" style="grid-column: span 6;">
+        <div class="skill-card-header">
+          <span class="skill-card-icon">⚡</span>
+          <h3>Specialized Areas</h3>
+        </div>
+        <div class="skill-pills-list">
+          <span>Smart Contracts</span><span>Soulbound Tokens (SBT)</span><span>Machine Learning</span><span>Data Structures & Algos (DSA)</span><span>Webapps Architecture</span>
         </div>
       </div>
 
-      <div class="skill-category card-3d reveal" id="skill-os" style="animation-delay:0.4s">
-        <div class="skill-cat-icon">🖥️</div>
-        <h3>Operating Systems</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">Windows</span>
-          <span class="skill-pill">Linux</span>
+      <!-- OS & Spoken Languages -->
+      <div class="bento-card skill-card" style="grid-column: span 6;">
+        <div class="skill-card-header">
+          <span class="skill-card-icon">🖥️</span>
+          <h3>Systems & Communication</h3>
         </div>
-      </div>
-
-      <div class="skill-category card-3d reveal" id="skill-langs" style="animation-delay:0.5s">
-        <div class="skill-cat-icon">🌏</div>
-        <h3>Languages Spoken</h3>
-        <div class="skill-pills">
-          <span class="skill-pill">Hindi (Native)</span>
-          <span class="skill-pill">English (Professional)</span>
-          <span class="skill-pill">Malayalam (Professional)</span>
+        <div class="skill-pills-list">
+          <span>Windows</span><span>Linux OS</span><span>Hindi (Native)</span><span>English (Proficient)</span><span>Malayalam (Proficient)</span>
         </div>
       </div>
 
@@ -420,191 +471,209 @@
   </div>
 </section>
 
-<!-- ─── EDUCATION ─────────────────────────────────────────── -->
-<section id="education" class="section">
+<!-- CREDENTIALS -->
+<section id="credentials" class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Academic Background</span>
-      <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
-    </div>
-
-    <div class="edu-grid">
-
-      <div class="edu-card card-3d reveal" id="edu-btech">
-        <div class="edu-year">2027</div>
-        <div class="edu-icon">🎓</div>
-        <h3>B.Tech (AI Honours + Electronics Minor)</h3>
-        <p class="edu-inst">Cochin University of Science and Technology (CUSAT)</p>
-        <div class="edu-cgpa">CGPA: <strong>8.2</strong> (Sem 4)</div>
-        <div class="edu-badges">
-          <span class="edu-badge">Minor in Electronics (Ongoing)</span>
-          <span class="edu-badge">Honours in AI & ML (Ongoing)</span>
-        </div>
-      </div>
-
-      <div class="edu-card card-3d reveal" id="edu-12" style="animation-delay:0.15s">
-        <div class="edu-year">2023</div>
-        <div class="edu-icon">📚</div>
-        <h3>Class XII — ISC</h3>
-        <p class="edu-inst">Indian School Certificate</p>
-        <div class="edu-cgpa">Score: <strong>89%</strong></div>
-      </div>
-
-      <div class="edu-card card-3d reveal" id="edu-10" style="animation-delay:0.3s">
-        <div class="edu-year">2021</div>
-        <div class="edu-icon">📖</div>
-        <h3>Class X — ICSE</h3>
-        <p class="edu-inst">Indian Certificate of Secondary Education</p>
-        <div class="edu-cgpa">Score: <strong>93%</strong></div>
-      </div>
-
-    </div>
-
-    <!-- Certifications -->
-    <div class="section-header" style="margin-top:5rem">
-      <span class="section-tag">Credentials</span>
-      <h2 class="section-title">My <span class="gradient-text">Certifications</span></h2>
-    </div>
+    <div class="sec-label">04. Credentials</div>
+    <h2 class="sec-title">Certifications & <em>Stamps</em></h2>
+    
     <div class="certs-grid">
-      <div class="cert-card card-3d reveal" id="cert-1">
-        <div class="cert-badge">ELITE + SILVER</div>
-        <div class="cert-icon">🐍</div>
-        <h4>Python for Data Science</h4>
-        <p>NPTEL</p>
-      </div>
-      <div class="cert-card card-3d reveal" id="cert-2" style="animation-delay:0.1s">
-        <div class="cert-badge">ELITE</div>
-        <div class="cert-icon">🤖</div>
-        <h4>Introduction to Machine Learning</h4>
-        <p>NPTEL</p>
-      </div>
-      <div class="cert-card card-3d reveal" id="cert-3" style="animation-delay:0.2s">
-        <div class="cert-badge">ELITE</div>
-        <div class="cert-icon">🔗</div>
-        <h4>Blockchain & Its Applications</h4>
-        <p>NPTEL</p>
-      </div>
-      <div class="cert-card card-3d reveal" id="cert-4" style="animation-delay:0.3s">
-        <div class="cert-badge">ELITE</div>
-        <div class="cert-icon">🔌</div>
-        <h4>PCB Designing & CAD (EC Minors)</h4>
-        <p>NPTEL</p>
-      </div>
-      <div class="cert-card card-3d reveal" id="cert-5" style="animation-delay:0.4s">
-        <div class="cert-badge">ELITE</div>
-        <div class="cert-icon">⚡</div>
-        <h4>Electrical Measurement & Electronic Instruments</h4>
-        <p>NPTEL</p>
-      </div>
-      <div class="cert-card card-3d reveal" id="cert-6" style="animation-delay:0.5s">
-        <div class="cert-badge">Level 7</div>
-        <div class="cert-icon">🧮</div>
-        <h4>Jigsaw Abacus</h4>
-        <p>Level 7 Certification</p>
-      </div>
-    </div>
+      
+      <!-- Python Data Science -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeiezqoisrp5jf6j36nctbadgd52buyc4eon74h2hvoltqfx4t6dsby" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">🐍</span>
+          <span class="cert-badge">ELITE + SILVER</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Python for Data Science</h4>
+          <p>NPTEL Certification</p>
+        </div>
+      </a>
 
+      <!-- Intro to ML -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeifo6nn5cx4rthbph4gursfnubumc6in5q25warjsp7c56rado33mi" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">🤖</span>
+          <span class="cert-badge elite">ELITE</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Introduction to ML</h4>
+          <p>NPTEL Certification</p>
+        </div>
+      </a>
+
+      <!-- Blockchain Applications -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeick4tlfvqx2wz5s5hfrykdzx2gwmghy6fyh2bdf6l3fqnui76udaq" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">⛓️</span>
+          <span class="cert-badge elite">ELITE</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Blockchain & Its Apps</h4>
+          <p>NPTEL Certification</p>
+        </div>
+      </a>
+
+      <!-- PCB Design -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeie3624j4bhkquhgo6bvcegickrejwh3t6amjs4lzxtquf3sf7skl4" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">🔌</span>
+          <span class="cert-badge elite">ELITE</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>PCB Design & CAD</h4>
+          <p>NPTEL (EC Minors)</p>
+        </div>
+      </a>
+
+      <!-- Electrical Measurements -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeidwkuvle2pjbdn2li4ctzxe6fxrjvkjm75fq4egmunayozlv2iol4" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">⚡</span>
+          <span class="cert-badge elite">ELITE</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Electrical Instruments</h4>
+          <p>NPTEL Certification</p>
+        </div>
+      </a>
+
+      <!-- Abacus Level 7 -->
+      <a href="https://scarlet-big-possum-145.mypinata.cloud/ipfs/bafybeiag3pcjc4ocj4gku4vg2q5jmmuvhnykkr3k7uthu3ctizqqkeral4" target="_blank" rel="noopener" class="bento-card cert-card cert-link">
+        <div class="cert-top">
+          <span class="cert-emoji">🧮</span>
+          <span class="cert-badge abacus">LEVEL 7</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Jigsaw Abacus Level 7</h4>
+          <p>Arithmetic Stamp</p>
+        </div>
+      </a>
+
+      <!-- Electronics Minor -->
+      <div class="bento-card cert-card">
+        <div class="cert-top">
+          <span class="cert-emoji">📟</span>
+          <span class="cert-badge">ONGOING</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Minor in Electronics</h4>
+          <p>CUSAT Engineering</p>
+        </div>
+      </div>
+
+      <!-- AI Honours -->
+      <div class="bento-card cert-card">
+        <div class="cert-top">
+          <span class="cert-emoji">🧠</span>
+          <span class="cert-badge elite">ONGOING</span>
+        </div>
+        <div class="cert-bottom">
+          <h4>Honours in AI & ML</h4>
+          <p>CUSAT Engineering</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ─── HOBBIES ────────────────────────────────────────────── -->
-<section id="hobbies" class="section section-dark">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Beyond Code</span>
-      <h2 class="section-title">My <span class="gradient-text">Interests</span></h2>
-    </div>
-    <div class="hobbies-grid">
-      <div class="hobby-card card-3d reveal" id="hobby-chess">
-        <div class="hobby-icon">♟️</div>
-        <h3>Chess</h3>
-        <p>Strategic thinking & pattern recognition fuel both my chess game and my approach to problem solving in code.</p>
-      </div>
-      <div class="hobby-card card-3d reveal" id="hobby-mystery" style="animation-delay:0.15s">
-        <div class="hobby-icon">🔍</div>
-        <h3>Solving Mysteries</h3>
-        <p>Love unraveling complex puzzles — whether it's a cryptic bug, a logic puzzle, or a good mystery story.</p>
-      </div>
-      <div class="hobby-card card-3d reveal" id="hobby-skating" style="animation-delay:0.3s">
-        <div class="hobby-icon">🛼</div>
-        <h3>Roller Skating</h3>
-        <p>Balancing on wheels keeps me grounded and adds a fun, creative dimension to my daily life.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ────────────────────────────────────────────── -->
+<!-- CONTACT -->
 <section id="contact" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Get in Touch</span>
-      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-      <p class="section-sub">Whether it's a project, an opportunity, or just a hello — I'd love to hear from you!</p>
-    </div>
+    <div class="sec-label">05. Discussions</div>
+    <h2 class="sec-title">Let's <em>Connect</em></h2>
+    
+    <div class="bento-grid contact-bento-grid">
+      
+      <!-- Contact Cards Column -->
+      <div class="bento-card bento-contact-form">
+        <h3>Direct Channels</h3>
+        
+        <!-- Email -->
+        <a href="mailto:alan2004john@gmail.com" class="contact-item-link">
+          <div class="contact-link-left">
+            <span class="contact-icon-plaque">✉️</span>
+            <div class="contact-link-details">
+              <span class="contact-c-label">Email</span>
+              <span class="contact-c-value">alan2004john@gmail.com</span>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
 
-    <div class="contact-grid">
-      <a href="mailto:alan2004john@gmail.com" class="contact-card card-3d reveal" id="contact-email" target="_blank" rel="noopener">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <h3>Email</h3>
-        <p>alan2004john@gmail.com</p>
-      </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/alan-john-40846b296/" target="_blank" rel="noopener" class="contact-item-link">
+          <div class="contact-link-left">
+            <span class="contact-icon-plaque">🔗</span>
+            <div class="contact-link-details">
+              <span class="contact-c-label">LinkedIn</span>
+              <span class="contact-c-value">in/alan-john-40846b296</span>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
 
-      <a href="https://www.linkedin.com/in/alan-john-40846b296/" target="_blank" rel="noopener" class="contact-card card-3d reveal" id="contact-linkedin" style="animation-delay:0.15s">
-        <div class="contact-icon" style="--icon-color:#0a66c2">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </div>
-        <h3>LinkedIn</h3>
-        <p>linkedin.com/in/alan-john</p>
-      </a>
+        <!-- GitHub -->
+        <a href="https://github.com/AlanJohn04" target="_blank" rel="noopener" class="contact-item-link">
+          <div class="contact-link-left">
+            <span class="contact-icon-plaque">💻</span>
+            <div class="contact-link-details">
+              <span class="contact-c-label">GitHub</span>
+              <span class="contact-c-value">github.com/AlanJohn04</span>
+            </div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
 
-      <a href="https://github.com/AlanJohn04" target="_blank" rel="noopener" class="contact-card card-3d reveal" id="contact-github" style="animation-delay:0.3s">
-        <div class="contact-icon" style="--icon-color:#6e5494">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <!-- Phone -->
+        <div class="contact-item-link" style="cursor: default;">
+          <div class="contact-link-left">
+            <span class="contact-icon-plaque">📞</span>
+            <div class="contact-link-details">
+              <span class="contact-c-label">Phone</span>
+              <span class="contact-c-value">+91 91511 12723</span>
+            </div>
+          </div>
         </div>
-        <h3>GitHub</h3>
-        <p>github.com/AlanJohn04</p>
-      </a>
 
-      <div class="contact-card card-3d reveal" id="contact-phone" style="animation-delay:0.45s">
-        <div class="contact-icon" style="--icon-color:#22c55e">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.42 2 2 0 0 1 3.62 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-1.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <h3>Phone</h3>
-        <p>+91 91511 12723</p>
       </div>
 
-      <div class="contact-card card-3d reveal" id="contact-location" style="animation-delay:0.6s">
-        <div class="contact-icon" style="--icon-color:#ef4444">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <!-- Quick message Column -->
+      <div class="bento-card bento-contact-quick">
+        <div class="quick-connect-block">
+          <h3>Send a Direct Message</h3>
+          <p>
+            Whether you want to build a decentralized smart contract, train a custom neural recommendation system, or just talk shop, send me a message right here!
+          </p>
         </div>
-        <h3>Location</h3>
-        <p>Sunderpur, Varanasi, UP, India</p>
+        <form action="https://formsubmit.co/alan2004john@gmail.com" method="POST" class="contact-form">
+          <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+          <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+          <textarea name="message" class="form-input" placeholder="Your Message" rows="3" required></textarea>
+          <input type="hidden" name="_captcha" value="false">
+          <button type="submit" class="btn-cta-email">Send Message ✉️</button>
+        </form>
       </div>
 
-    </div>
-
-    <div class="contact-cta reveal">
-      <a href="mailto:alan2004john@gmail.com" class="btn-primary btn-glow btn-large" id="cta-email">
-        Send Me an Email ✉️
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Alan John<span class="dot">.</span></div>
-    <p class="footer-sub">Full-Stack · Blockchain · ML</p>
-    <div class="footer-links">
-      <a href="mailto:alan2004john@gmail.com" id="footer-email">Email</a>
-      <a href="https://www.linkedin.com/in/alan-john-40846b296/" target="_blank" rel="noopener" id="footer-linkedin">LinkedIn</a>
-      <a href="https://github.com/alan2004john" target="_blank" rel="noopener" id="footer-github">GitHub</a>
+  <div class="foot-inner">
+    <div class="monogram-brand">
+      <span class="mono-a">A</span><span class="mono-j">J</span><span class="mono-a">.</span>
     </div>
-    <p class="footer-copy">© 2025 Alan John. Crafted with ❤️ &amp; code.</p>
+    <p class="foot-tagline">Full-Stack · Blockchain · Machine Learning</p>
+    <div class="foot-links">
+      <a href="mailto:alan2004john@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/alan-john-40846b296/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/AlanJohn04" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="foot-copy">© 2026 Alan John · Crafted with absolute attention to detail</p>
   </div>
 </footer>
 
