@@ -938,6 +938,9 @@ body.dark-theme #nav.scrolled {
   flex-direction: column;
   gap: 20px;
 }
+.skill-card.span-6 {
+  grid-column: span 6;
+}
 .skill-card-header {
   display: flex;
   align-items: center;
@@ -1221,37 +1224,36 @@ footer::after {
 
 /* ── Responsive Architecture ────────────────────── */
 @media (max-width: 1024px) {
-  .hero-bento-container {
-    grid-template-columns: 1fr;
-  }
-  .bento-hero-main { grid-column: span 12; min-height: auto; }
-  .bento-hero-dashboard { grid-column: span 12; }
-  .bento-hero-sub1, .bento-hero-sub2, .bento-hero-sub3 { grid-column: span 4; }
+  .hero-bento-container { grid-template-columns: 1fr; }
+  .bento-hero-main { grid-column: 1 / -1; min-height: auto; }
+  .bento-hero-dashboard { grid-column: 1 / -1; }
+  .bento-hero-sub1, .bento-hero-sub2, .bento-hero-sub3 { grid-column: 1 / -1; }
 
   .about-bento-grid { grid-template-columns: 1fr; }
-  .bento-about-intro, .bento-about-edu, .bento-about-details, .bento-about-hobbies { grid-column: span 12; }
+  .bento-about-intro, .bento-about-edu, .bento-about-details, .bento-about-hobbies { grid-column: 1 / -1; }
 
   .projects-grid { grid-template-columns: 1fr; }
+  .proj-card { grid-column: 1 / -1; }
 
   .exp-card { grid-template-columns: 1fr; gap: 16px; }
   .exp-meta-card { border-right: none; border-bottom: 1px dashed var(--border); padding-right: 0; padding-bottom: 16px; }
 
   .skills-grid { grid-template-columns: 1fr; }
-  .skill-card { grid-column: span 12; }
+  .skill-card, .skill-card.span-6 { grid-column: 1 / -1; }
 
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
 
   .contact-bento-grid { grid-template-columns: 1fr; }
-  .bento-contact-form, .bento-contact-quick { grid-column: span 12; }
+  .bento-contact-form, .bento-contact-quick { grid-column: 1 / -1; }
 }
 
 @media (max-width: 768px) {
+  .container { padding: 0 16px; }
   #nav { padding: 18px 24px; }
   #nav.scrolled { padding: 12px 24px; }
   .nav-center { display: none; }
   .ham { display: flex; }
 
-  .bento-hero-sub1, .bento-hero-sub2, .bento-hero-sub3 { grid-column: span 12; }
   .certs-grid { grid-template-columns: 1fr; }
   .bento-card { padding: 24px; }
   .bento-card::after { inset: 4px; border-radius: calc(var(--r) - 4px); }

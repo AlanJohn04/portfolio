@@ -131,10 +131,14 @@ const statObserver = new IntersectionObserver(entries => {
     
     const countTimer = setInterval(() => {
       currentValue = Math.min(currentValue + stepIncrement, targetValue);
-      el.textContent = hasDecimal ? currentValue.toFixed(2) : Math.round(currentValue);
+      let displayValue = hasDecimal ? currentValue.toFixed(2) : Math.round(currentValue);
+      
       if (currentValue >= targetValue) {
+        displayValue += (el.dataset.suffix || '');
         clearInterval(countTimer);
       }
+      
+      el.textContent = displayValue;
     }, 25);
     statObserver.unobserve(el);
   });
